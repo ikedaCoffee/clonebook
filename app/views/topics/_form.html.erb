@@ -1,0 +1,24 @@
+<%= form_for(@topic) do |f| %>
+  <% if @topic.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @topic.errors.count %>件のエラーがあります。</h2>
+
+      <ul>
+        <% @topic.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>タイトル</p>
+  <%= f.text_field :title, class: "form-control" %>
+  <br>
+  <p>内容</p>
+  <%= f.text_area :content, class: "form-control" %>
+  <br><br>
+  <%= f.submit "投稿", class: "btn btn-primary btn-block" %>
+<% end %>
+
+<br>
+<%= link_to "投稿一覧へ", topics_path %>
