@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Clonebook</title>
+  <title>clonebook</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= favicon_link_tag "logo.png" %>
@@ -10,12 +10,31 @@
 </head>
 <body>
 <header>
-  <ul>
-    <li>
-      <%= link_to image_tag("logo.png", class: "image-logo", size: "28x28"), root_path %>
-    </li>
-    <li><%= link_to "投稿を作成", new_topic_path %></li>
-  </ul>
+  <nav class="navbar navbar-default">
+    <div class="container-fruid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to image_tag("logo.png", size: "28x28"), root_path, class: "navbar-brand image-logo" %>
+        <%= link_to "clonebook", root_path, class: "navbar-brand text-logo"%>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li><%= link_to "新規投稿", new_topic_path %></li>
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "ログイン", new_user_session_path %></li>
+          <li><%= link_to "サインアップ", new_user_registration_path %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </header>
 
 <%= yield %>

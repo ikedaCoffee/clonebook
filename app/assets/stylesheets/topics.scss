@@ -1,30 +1,54 @@
-header {
-  width: 100%;
-  background-color: #ffffff;
-  height: 54px;
-  border-bottom: solid 1px #333;
+.navbar-default {
+    border: 0;
+    border-bottom: 1px solid #000;
 }
-
-header ul {
-  margin: 0 auto;
-  list-style: none;
+.navbar {
+    background-color: transparent;
+    color: #000;
+    margin-bottom: 0px;
 }
-
-header ul a {
-  display: block;
-  padding: 15px 10px;
-  text-decoration: none;
+.navbar-default {
+  .navbar-brand {
+    color: #000;
+    &:hover {
+      color: #aaa;
+    }
+  }
+  .navbar-nav > li > a {
+    color: #000;
+    &:hover, &:focus {
+      color: #aaa;
+    }
+  }
+  .navbar-nav > .open > a {
+    background-color: transparent;
+    color: #000;
+    &:hover, &:focus {
+      background-color: transparent;
+      color: #aaa;
+    }
+  }
+  .navbar-brand {
+    color: #000;
+    &:hover, &:focus {
+      color: #000;
+    }
+  }
 }
-
-header li {
-  float: left;
-  width: auto;
-}
-
-header ul:after {
-  content: "";
-  display: block;
-  clear: both;
+@media (max-width: 767px) {
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #000;
+    text-align: center;
+    &:hover, &:focus {
+      color: #aaa;
+    }
+  }
+  .navbar-default .navbar-toggle {
+    background-color: transparent;
+    &:hover, &:focus {
+      background-color: transparent;
+    }
+  }
 }
 
 footer {
@@ -54,4 +78,31 @@ a {
 #error_explanation ul {
   list-style-type: none;
   padding-left: 0;
+}
+
+.image-logo {
+  padding: 10px 0px 10px 20px;
+}
+
+.text-logo {
+  padding-left: 16px;
+  padding-top: 16px;
+}
+
+.wrapper {
+  margin-bottom: 30px;
+  padding: 20px 20px 20px 35px;
+  .row {
+    border-bottom: 1px solid #ccc;
+    padding: 20px;
+    text-align: left;
+    word-wrap: break-word;
+  }
+}
+input[type="submit"].btn-block{
+  margin: 15px 0;
+}
+
+.container{
+  padding-bottom: 85px;
 }
