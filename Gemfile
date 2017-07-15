@@ -47,3 +47,5 @@ gem 'twitter-bootstrap-rails'
 
 gem 'devise'
 
+gem 'faker'
+
