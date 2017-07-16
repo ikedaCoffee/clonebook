@@ -43,6 +43,9 @@ group :development, :test do
   gem 'spring'
 
   gem 'letter_opener_web'
+
+  gem 'pry-rails'
+  gem 'better_errors'
 end
 
 gem 'twitter-bootstrap-rails'
@@ -50,4 +53,8 @@ gem 'twitter-bootstrap-rails'
 gem 'devise'
 
 gem 'faker'
+
+gem 'rails_admin'
+
+gem 'cancan'
 
