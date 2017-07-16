@@ -5,6 +5,7 @@
     <p><%= link_to "投稿を作成", new_topic_path, class: "btn btn-default btn-sm" %></p>
     <% @topics.each do |topic| %>
     <div class="row">
+      <p><%= topic.user.name %>が投稿</p>
       <h4><strong><%= topic.title %></strong></h4>
       <p><%= topic.content %></p>
       <%= link_to "編集", edit_topic_path(topic.id), class: "btn btn-default btn-xs" %>
