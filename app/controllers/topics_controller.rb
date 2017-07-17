@@ -14,7 +14,7 @@ class TopicsController < ApplicationController
     @topic = Topic.new(topic_params)
     @topic.user_id = current_user.id
     if @topic.save
-      redirect_to topics_path, notice: "トピックを作成しました。"
+      redirect_to topics_path, notice: "新規投稿しました。"
       NoticeMailer.sendmail_topic(@topic).deliver
     else
       render 'new'
@@ -26,7 +26,7 @@ class TopicsController < ApplicationController
 
   def update
     if @topic.update(topic_params)
-      redirect_to topics_path, notice: "トピックを編集しました。"
+      redirect_to topics_path, notice: "更新しました。"
     else
       render 'edit'
     end
@@ -34,12 +34,12 @@ class TopicsController < ApplicationController
 
   def destroy
     @topic.destroy
-    redirect_to topics_path, notice: "トピックを削除しました。"
+    redirect_to topics_path, notice: "削除しました。"
   end
 
   private
     def topic_params
-      params.require(:topic).permit(:title, :content)
+      params.require(:topic).permit(:title, :content, :image)
     end
 
     def set_topic
