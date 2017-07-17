@@ -46,7 +46,12 @@ group :development, :test do
 
   gem 'pry-rails'
   gem 'better_errors'
-  gem 'dotenv-rails'
+
+  gem 'capistrano', '3.6.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
 end
 
 gem 'twitter-bootstrap-rails'
@@ -67,3 +72,6 @@ gem 'carrierwave'
 gem 'mini_magick'
 
 gem 'fog'
+
+gem 'dotenv-rails'
+gem 'unicorn'
