@@ -16,6 +16,13 @@
         <%= f.label :名前 %><br />
         <%= f.text_field :name, class: "form-control" %>
       </div>
+      <br>
+      <div class="field">
+        <p class="registration-profile-image"><%= profile_img(@user) if profile_img(@user) %><p>
+        <%= f.file_field :avatar, class: "btn btn-default btn-block" %>
+        <%= f.hidden_field :avatar_cache %>
+      </div>
+
 
       <% if @user.provider.blank? %>
 
@@ -45,12 +52,6 @@
         </div>
 
       <% end %>
-      <br>
-      <div class="field">
-        <p class="registration-profile-image"><%= profile_img(@user) if profile_img(@user) %><p>
-        <%= f.file_field :avatar, class: "btn btn-default btn-block" %>
-        <%= f.hidden_field :avatar_cache %>
-      </div>
 
       <div class="actions">
         <%= f.submit "アカウントの更新", class: "btn btn-primary btn-block" %>

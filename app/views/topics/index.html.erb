@@ -16,8 +16,8 @@
         <br><br>
       <% end %>
       <p><%= topic.content %></p>
-      <%= link_to "編集", edit_topic_path(topic.id), class: "btn btn-default btn-xs" %>
-      <%= link_to "削除", topic_path(topic.id), method: :delete, data: {confirm: "本当に削除してよいですか？"}, class: "btn btn-default btn-xs" %>
+      <%= link_to "編集", edit_topic_path(topic.id), class: "btn btn-default btn-sm" %>
+      <%= link_to "削除", topic_path(topic.id), method: :delete, data: {confirm: "本当に削除してよいですか？"}, class: "btn btn-default btn-sm" %>
     </div>
     <% end %>
   </div>
