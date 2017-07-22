@@ -12,7 +12,7 @@
       <h4><strong><%= topic.title %></strong></h4>
       <% if topic.image? %>
         <br>
-        <%= image_tag(topic.image, class: "index-images") %>
+        <span class="index-images"><%= image_tag(topic.image) %></span>
         <br><br>
       <% end %>
       <p><%= topic.content %></p>
