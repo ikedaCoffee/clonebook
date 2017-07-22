@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>clonebook</title>
+  <title>CLONEBOOK</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= favicon_link_tag "logo.png" %>
@@ -19,19 +19,18 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to image_tag("logo.png", size: "28x28"), root_path, class: "navbar-brand image-logo" %>
-        <%= link_to "clonebook", root_path, class: "navbar-brand text-logo"%>
+        <%= link_to " CLONEBOOK", root_path, class: "navbar-brand fa fa-thumbs-o-up"%>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-          <li><%= link_to "投稿一覧", topics_path %></li>
-          <li><%= link_to "新規投稿", new_topic_path %></li>
-          <li><%= link_to "マイページ", edit_user_registration_path %></li>
-          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to " 投稿一覧", topics_path, class: "fa fa-newspaper-o" %></li>
+          <li><%= link_to " 新規投稿", new_topic_path, class: "fa fa-file-text-o" %></li>
+          <li><%= link_to " マイページ", edit_user_registration_path, class: "fa fa-user" %></li>
+          <li><%= link_to " ログアウト", destroy_user_session_path, class: "fa fa-sign-out" ,method: :delete %></li>
         <% else %>
-          <li><%= link_to "ログイン", new_user_session_path %></li>
-          <li><%= link_to "アカウント登録", new_user_registration_path %></li>
+          <li><%= link_to " ログイン", new_user_session_path, class: "fa fa-sign-in" %></li>
+          <li><%= link_to " アカウント登録", new_user_registration_path, class: "fa fa-clone" %></li>
         <% end %>
         </ul>
       </div>

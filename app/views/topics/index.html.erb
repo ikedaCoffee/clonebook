@@ -1,23 +1,29 @@
 <div class="container">
   <div class="wrapper col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
     <p><%= notice %><%= alert %></p>
-    <h1>投稿一覧</h1>
-    <p><%= link_to "投稿を作成", new_topic_path, class: "btn btn-default btn-sm" %></p>
+    <h1><i class="fa fa-newspaper-o" aria-hidden="true"></i> 投稿一覧</h1>
+    <%= link_to " 新規投稿へ", new_topic_path, class: "fa fa-file-text-o" %>
     <% @topics.each do |topic| %>
     <div class="row">
       <p>
         <span class="index-profile-image"><%= profile_img(topic.user) %></span>
         <%= topic.user.name %>が投稿
       </p>
-      <h4><strong><%= topic.title %></strong></h4>
-      <% if topic.image? %>
-        <br>
-        <%= image_tag(topic.image) %>
-        <br><br>
+      <%= link_to topic_path(topic) do %>
+        <h4><strong><%= topic.title %></strong></h4>
+        <% if topic.image? %>
+          <br>
+          <%= image_tag(topic.image) %>
+          <br><br>
+        <% end %>
       <% end %>
       <p><%= topic.content %></p>
-      <%= link_to "編集", edit_topic_path(topic.id), class: "btn btn-default btn-sm" %>
-      <%= link_to "削除", topic_path(topic.id), method: :delete, data: {confirm: "本当に削除してよいですか？"}, class: "btn btn-default btn-sm" %>
+      <% if current_user.id == topic.user_id %>
+        <p class="right">
+          <%= link_to "", edit_topic_path(topic.id), class: "fa fa-pencil-square-o fa-lg" %>
+          <%= link_to "", topic_path(topic.id), method: :delete, data: {confirm: "本当に削除してよいですか？"}, class: "fa fa-trash-o fa-lg" %>
+        </p>
+      <% end %>
     </div>
     <% end %>
   </div>
