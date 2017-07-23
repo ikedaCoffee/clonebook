@@ -1,0 +1,6 @@
+<% user.followers.each do |follower| %>
+  <p>
+    <span class="index-profile-image"><%= profile_img(follower) %></span>
+    <%= follower.name %>
+  </p>
+<% end %>

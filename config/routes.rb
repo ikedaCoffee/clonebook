@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :comments
     post :confirm, on: :collection
   end
+  resources :users, only: [:index, :show]
+  resources :relationships, only: [:create, :destroy]
   root 'top#index'
 
   if Rails.env.development?
