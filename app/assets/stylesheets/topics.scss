@@ -76,6 +76,10 @@ a {
   color: #333;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 #error_explanation ul {
   list-style-type: none;
   padding-left: 0;
