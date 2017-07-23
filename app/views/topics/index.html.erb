@@ -3,27 +3,27 @@
     <p><%= notice %><%= alert %></p>
     <h1><%= link_to " いまなにしてる？", new_topic_path %></h1>
     <% @topics.each do |topic| %>
-    <div class="row">
-      <p>
-        <span class="index-profile-image"><%= profile_img(topic.user) %></span>
-        <%= topic.user.name %>が投稿
-      </p>
-      <%= link_to topic_path(topic) do %>
-        <h4><strong><%= topic.title %></strong></h4>
-        <% if topic.image? %>
-          <br>
-          <%= image_tag(topic.image) %>
-          <br><br>
-        <% end %>
-      <% end %>
-      <p><%= topic.content %></p>
-      <% if current_user.id == topic.user_id %>
-        <p class="right">
-          <%= link_to "", edit_topic_path(topic.id), class: "fa fa-pencil-square-o fa-lg" %>
-          <%= link_to "", topic_path(topic.id), method: :delete, data: {confirm: "本当に削除してよいですか？"}, class: "fa fa-trash-o fa-lg" %>
+      <div class="row">
+        <p>
+          <span class="index-profile-image"><%= profile_img(topic.user) %></span>
+          <%= topic.user.name %>が投稿
         </p>
+        <%= link_to topic_path(topic) do %>
+          <h4><strong><%= topic.title %></strong></h4>
+          <% if topic.image? %>
+            <br>
+            <%= image_tag(topic.image) %>
+            <br><br>
+          <% end %>
+        <% end %>
+        <p><%= topic.content %></p>
+        <% if current_user.id == topic.user_id %>
+          <p class="right">
+            <%= link_to "", edit_topic_path(topic.id), class: "fa fa-pencil-square-o fa-lg" %>
+            <%= link_to "", topic_path(topic.id), method: :delete, data: {confirm: "本当に削除してよいですか？"}, class: "fa fa-trash-o fa-lg" %>
+          </p>
+        </div>
       <% end %>
-    </div>
     <% end %>
   </div>
 </div>
