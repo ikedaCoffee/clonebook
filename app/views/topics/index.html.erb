@@ -3,6 +3,7 @@
     <p><%= notice %><%= alert %></p>
     <h1><%= link_to " いまなにしてる？", new_topic_path %></h1>
     <% @topics.each do |topic| %>
+      <% if topic.user == current_user || current_user.followed_users.include?(topic.user) %>
       <div class="row">
         <p>
           <span class="index-profile-image"><%= profile_img(topic.user) %></span>
@@ -24,6 +25,7 @@
           </p>
        <% end %>
       </div>
+      <% end %>
     <% end %>
   </div>
 </div>
