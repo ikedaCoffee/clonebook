@@ -8,8 +8,8 @@
             <%= user.name %>
           </p>
         <% end %>
-        <p><%= link_to "メッセージ", conversations_path(sender_id: current_user.id, recipient_id: user.id), method: "post", class: "btn btn-primary btn-sm" %></p>
         <p><%= render partial: 'follow_form', locals: {user: user} if signed_in? %></p>
+        <p><%= link_to " メッセージ", conversations_path(sender_id: current_user.id, recipient_id: user.id), method: "post", class: "fa fa-commenting-o" %></p>
         <br>
       <% end %>
     <% end %>

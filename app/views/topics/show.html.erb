@@ -16,7 +16,6 @@
         <%= @topic.created_at.strftime("%y/%m/%d %p %l:%M") %>
       </p>
     </div>
-    <p><strong>コメント一覧</strong></p>
     <div id="comments_area">
       <%= render partial: 'comments/index', locals: {comments: @comments, topic: @topic} %>
     </div>
