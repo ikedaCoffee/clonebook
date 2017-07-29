@@ -3,12 +3,13 @@ class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
 
   def index
-    @topics = Topic.all
+    @topics = Topic.all.order(:created_at).reverse_order
   end
 
   def show
     @comment = @topic.comments.build
     @comments = @topic.comments
+    Notification.find(params[:notification_id]).update(read: true) if params[:notification_id]
   end
 
   def new

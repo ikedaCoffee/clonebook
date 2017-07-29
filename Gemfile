@@ -76,3 +76,5 @@ gem 'fog'
 
 gem 'dotenv-rails'
 gem 'unicorn'
+
+gem 'pusher'

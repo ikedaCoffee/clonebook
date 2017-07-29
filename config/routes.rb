@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     resources :messages
   end
 
+  resources :notifications, only: [:index]
+
   resources :users, only: [:index, :show]
   resources :relationships, only: [:create, :destroy]
   root 'top#index'

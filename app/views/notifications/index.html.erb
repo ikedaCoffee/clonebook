@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="wrapper col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+    <h2><i class="fa fa-bell fa-1x" aria-hidden="true"></i> お知らせ</h2>
+    <ul>
+    <% @notifications.each do |notification| %>
+      <hr>
+      <li>
+        <% unless notification.read %>
+          <p><i class="fa fa-book" aria-hidden="true"></i> 未読</p>
+        <% end %>
+        <p>
+          <%= notification.comment.user.try(:name) %>さんが
+          あなたの投稿（<%= link_to "#{notification.comment.topic.title}", topic_path(notification.comment.topic, notification_id: notification.id) %>）にコメントしました。
+        </p>
+        <p><%= posted_time(notification.created_at) %></p>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+</div>
