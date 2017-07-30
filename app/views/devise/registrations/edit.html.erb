@@ -19,8 +19,16 @@
       <br>
       <div class="field">
         <p class="registration-profile-image"><%= profile_img(@user) if profile_img(@user) %><p>
-        <%= f.file_field :avatar, class: "btn btn-default btn-block" %>
-        <%= f.hidden_field :avatar_cache %>
+        <div class="input-group">
+          <label class="input-group-btn">
+            <span class="btn btn-primary">
+              写真を選択
+              <%= f.file_field :avatar, style: "display: none" %>
+              <%= f.hidden_field :avatar_cache %>
+            </span>
+          </label>
+          <input type="text" class="form-control" readonly="">
+        </div>
       </div>
 
 

@@ -22,6 +22,13 @@
       channel.bind('notification_created', function(data) {
         $('#unread_count').html(data.unread_counts);
       });
+
+      $(document).on('change', ':file', function() {
+          var input = $(this),
+          numFiles = input.get(0).files ? input.get(0).files.length : 1,
+          label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+          input.parent().parent().next(':text').val(label);
+      });
     </script>
   <% end %>
 </head>

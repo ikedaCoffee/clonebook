@@ -19,8 +19,16 @@
   <% else %>
     <p>写真</p>
   <% end %>
-  <%= f.file_field :image, class: "btn btn-default btn-block" %>
-  <%= f.hidden_field :image_cache %>
+  <div class="input-group">
+    <label class="input-group-btn">
+      <span class="btn btn-primary">
+        ファイルを選択
+        <%= f.file_field :image, style: "display: none" %>
+        <%= f.hidden_field :image_cache %>
+      </span>
+    </label>
+    <input type="text" class="form-control" readonly="">
+  </div>
   <br>
   <p>内容</p>
   <%= f.text_area :content, class: "form-control", rows: 10 %>
