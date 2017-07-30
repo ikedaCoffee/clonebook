@@ -12,6 +12,8 @@ class CommentsController < ApplicationController
         format.js {render :index}
         unless @comment.topic.user_id == current_user.id
           pusher_comment(@comment)
+        else
+          @notification.update(read: true)
         end
         pusher_notification_count(@comment)
       else
